@@ -1,0 +1,33 @@
+{
+  "workflow_id": "document-summarization",
+  "description": "A document summarization workflow with extraction, synthesis, and a short quality check.",
+  "monthly_volume": 25000,
+  "steps": [
+    {
+      "name": "extract_key_sections",
+      "model_id": "mid-model",
+      "input_tokens": 9000,
+      "output_tokens": 800,
+      "calls_per_task": 1
+    },
+    {
+      "name": "generate_summary",
+      "model_id": "mid-model",
+      "input_tokens": 4500,
+      "output_tokens": 700,
+      "calls_per_task": 1
+    },
+    {
+      "name": "quality_check",
+      "model_id": "cheap-model",
+      "input_tokens": 1800,
+      "output_tokens": 120,
+      "calls_per_task": 1
+    }
+  ],
+  "retry_rate": 0.04,
+  "human_fallback_rate": 0.01,
+  "human_fallback_cost": 3.0,
+  "failure_rate": 0.005,
+  "failure_cost": 6.0
+}

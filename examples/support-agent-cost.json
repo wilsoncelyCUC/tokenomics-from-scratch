@@ -1,0 +1,37 @@
+{
+  "workflow_id": "support-agent-resolution",
+  "description": "A customer support workflow with classification, retrieval, answer generation, quality checks, retries, and optional human fallback.",
+  "monthly_volume": 10000,
+  "steps": [
+    {
+      "name": "classify_ticket",
+      "model_id": "cheap-model",
+      "input_tokens": 1200,
+      "output_tokens": 120,
+      "calls_per_task": 1
+    },
+    {
+      "name": "retrieve_context",
+      "fixed_cost_per_task": 0.001
+    },
+    {
+      "name": "generate_answer",
+      "model_id": "mid-model",
+      "input_tokens": 3500,
+      "output_tokens": 600,
+      "calls_per_task": 1
+    },
+    {
+      "name": "quality_check",
+      "model_id": "cheap-model",
+      "input_tokens": 1000,
+      "output_tokens": 80,
+      "calls_per_task": 1
+    }
+  ],
+  "retry_rate": 0.08,
+  "human_fallback_rate": 0.03,
+  "human_fallback_cost": 2.5,
+  "failure_rate": 0.01,
+  "failure_cost": 5.0
+}

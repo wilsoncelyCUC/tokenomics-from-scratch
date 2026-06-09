@@ -1,0 +1,26 @@
+{
+  "disclaimer": "Illustrative placeholder pricing for education only. Replace with provider-verified prices before production use.",
+  "models": [
+    {
+      "id": "cheap-model",
+      "provider": "example",
+      "input_price_per_million_tokens": 0.1,
+      "output_price_per_million_tokens": 0.4,
+      "notes": "Placeholder pricing for examples."
+    },
+    {
+      "id": "mid-model",
+      "provider": "example",
+      "input_price_per_million_tokens": 1.0,
+      "output_price_per_million_tokens": 5.0,
+      "notes": "Placeholder pricing for examples."
+    },
+    {
+      "id": "frontier-model",
+      "provider": "example",
+      "input_price_per_million_tokens": 5.0,
+      "output_price_per_million_tokens": 15.0,
+      "notes": "Placeholder pricing for examples."
+    }
+  ]
+}

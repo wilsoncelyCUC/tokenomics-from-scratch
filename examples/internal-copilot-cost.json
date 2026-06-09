@@ -1,0 +1,30 @@
+{
+  "workflow_id": "internal-copilot-answer",
+  "description": "An internal copilot workflow with retrieval, answer generation, and escalation for uncertain answers.",
+  "monthly_volume": 50000,
+  "steps": [
+    {
+      "name": "retrieve_policy_context",
+      "fixed_cost_per_task": 0.0008
+    },
+    {
+      "name": "draft_answer",
+      "model_id": "mid-model",
+      "input_tokens": 2800,
+      "output_tokens": 450,
+      "calls_per_task": 1
+    },
+    {
+      "name": "confidence_check",
+      "model_id": "cheap-model",
+      "input_tokens": 900,
+      "output_tokens": 60,
+      "calls_per_task": 1
+    }
+  ],
+  "retry_rate": 0.06,
+  "human_fallback_rate": 0.003,
+  "human_fallback_cost": 4.0,
+  "failure_rate": 0.001,
+  "failure_cost": 10.0
+}
