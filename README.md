@@ -161,7 +161,7 @@ The numbers above use illustrative sample pricing from [data/sample_pricing.json
 
 The [resources](resources/README.md) folder is intentionally curated. A link belongs here only if it helps estimate real AI system cost, explain agentic workflow economics, provide reusable pricing data, evaluate cost-quality tradeoffs, or improve production cost governance.
 
-This repo avoids stale price claims. When a resource or price needs validation, it is marked explicitly.
+This repo avoids stale price claims. Every resource says the job it does for you and why it can be trusted, and the list shows the date it was last checked. Start with the [five picks](resources/README.md#start-here-five-picks-five-jobs).
 
 ## Templates And Outputs
 
