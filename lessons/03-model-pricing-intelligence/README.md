@@ -26,7 +26,14 @@ Run:
 
 ```bash
 python -m tokenomics_from_scratch.cli compare --workflow examples/document-summarization-cost.json --models cheap-model,mid-model,frontier-model
+python -m tokenomics_from_scratch.cli compare --workflow examples/support-agent-cost.json --models cheap-model,mid-model,frontier-model
 ```
+
+The first comparison assumes every model behaves the same on the task, so the cheapest price wins. The output says so.
+
+The second uses `model_behavior` in [examples/support-agent-cost.json](../../examples/support-agent-cost.json): how often each model retries, goes to a human or fails on this task. The cheap model now costs the most per completed task, and the frontier model the least. A model can also use more tokens than another for the same work: set `input_token_multiplier` or `output_token_multiplier`.
+
+Replace the illustrative behavior with numbers from your own evals before you trust the ranking.
 
 Then complete [templates/model-selection-scorecard.md](../../templates/model-selection-scorecard.md).
 

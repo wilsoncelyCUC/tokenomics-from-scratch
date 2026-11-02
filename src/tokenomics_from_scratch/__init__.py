@@ -1,6 +1,7 @@
 """Small educational helpers for AI task economics."""
 
 from .calculator import (
+    assign_model,
     calculate_model_call_cost,
     calculate_monthly_cost,
     calculate_step_cost,
@@ -10,6 +11,7 @@ from .calculator import (
 from .routing import simulate_routing
 
 __all__ = [
+    "assign_model",
     "calculate_model_call_cost",
     "calculate_monthly_cost",
     "calculate_step_cost",

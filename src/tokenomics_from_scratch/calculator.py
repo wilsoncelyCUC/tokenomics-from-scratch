@@ -67,6 +67,30 @@ def calculate_workflow_cost(
     }
 
 
+BEHAVIOR_RATES = ("retry_rate", "human_fallback_rate", "failure_rate")
+
+
+def assign_model(workflow: dict[str, Any], model_id: str) -> dict[str, Any]:
+    """Run every model step on one model, using how that model behaves on this task.
+
+    A cheaper model can write more tokens, retry more and fail more. The optional
+    workflow["model_behavior"][model_id] entry says so; without it, the model is
+    assumed to behave exactly like the workflow's baseline.
+    """
+    behavior = workflow.get("model_behavior", {}).get(model_id, {})
+    candidate = deepcopy(workflow)
+    for step in candidate["steps"]:
+        if "model_id" in step:
+            step["model_id"] = model_id
+            for side in ("input", "output"):
+                multiplier = float(behavior.get(f"{side}_token_multiplier", 1.0))
+                step[f"{side}_tokens"] = round(step.get(f"{side}_tokens", 0) * multiplier)
+    for rate in BEHAVIOR_RATES:
+        if rate in behavior:
+            candidate[rate] = behavior[rate]
+    return candidate
+
+
 def compare_models_for_workflow(
     workflow: dict[str, Any],
     pricing_catalog: dict[str, dict[str, Any]],
@@ -75,17 +99,13 @@ def compare_models_for_workflow(
     comparisons: list[dict[str, Any]] = []
 
     for model_id in model_ids:
-        candidate = deepcopy(workflow)
-        for step in candidate["steps"]:
-            if "model_id" in step:
-                step["model_id"] = model_id
-
-        result = calculate_workflow_cost(candidate, pricing_catalog)
+        result = calculate_workflow_cost(assign_model(workflow, model_id), pricing_catalog)
         comparisons.append(
             {
                 "model_id": model_id,
                 "cost_per_completed_task": result["cost_per_completed_task"],
                 "monthly_cost": result["monthly_cost"],
+                "behavior_assumed": model_id not in workflow.get("model_behavior", {}),
             }
         )
 
