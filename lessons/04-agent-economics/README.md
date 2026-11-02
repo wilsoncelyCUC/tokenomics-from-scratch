@@ -1,5 +1,7 @@
 # 04: Agent Economics
 
+> **Draft.** An outline without worked numbers yet. It folds into problem P4, agent or workflow, when that page is written.
+
 ## Motto
 
 Agents spend money while they think.
@@ -26,7 +28,7 @@ Use [templates/agent-budget-review.md](../../templates/agent-budget-review.md) t
 
 ## Use It
 
-FDEs can use this review with customers before a pilot. PMs can use it to decide whether an autonomous workflow should be fully automated, partially automated, or human-in-the-loop.
+Program managers can use this review before a pilot. PMs can use it to decide whether an autonomous workflow should be fully automated, partially automated, or human-in-the-loop.
 
 ## Ship It
 

@@ -42,7 +42,7 @@ Record what changed and why.
 
 ## Use It
 
-PMs can use cost per completed task to decide whether a feature should be bundled, metered, limited, or repriced. FDEs can use it to decide where engineering effort should go first: prompt shortening, routing, caching, evals, retrieval design, or fallback reduction.
+PMs can use cost per completed task to decide whether a feature should be bundled, metered, limited, or repriced. Engineering leads can use it to decide where effort should go first: prompt shortening, routing, caching, evals, retrieval design, or fallback reduction.
 
 ## Ship It
 
@@ -52,4 +52,4 @@ At the end of this lesson, you should have a before-and-after workflow estimate 
 
 - Previous: [01 Token Math](../01-token-math/README.md)
 - Next: [03 Model Pricing Intelligence](../03-model-pricing-intelligence/README.md)
-- Output: [Cost Review Prompt](../../outputs/cost-review-prompt.md)
+- Template: [Cost Review Prompt](../../templates/cost-review-prompt.md)

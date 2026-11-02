@@ -1,5 +1,7 @@
 # 06: Observability
 
+> **Draft.** An outline without worked numbers yet. It folds into problem P8, what to log before launch, when that page is written.
+
 ## Motto
 
 You cannot control cost you cannot trace.
@@ -26,7 +28,7 @@ Cost observability connects events to a completed task:
 
 ## Build It
 
-Draft a trace schema and use [outputs/launch-readiness-checklist.md](../../outputs/launch-readiness-checklist.md) to decide what must be logged before launch.
+Draft a trace schema and use the [launch readiness checklist](../../templates/launch-readiness-checklist.md) to decide what must be logged before launch.
 
 ## Use It
 

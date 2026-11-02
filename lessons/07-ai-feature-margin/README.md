@@ -1,5 +1,7 @@
 # 07: AI Feature Margin And Capstone
 
+> **Draft.** An outline without worked numbers yet. It folds into problem P5, how to price, and P6, heavy users, when that page is written.
+
 ## Motto
 
 AI features need their own unit economics.

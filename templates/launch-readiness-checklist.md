@@ -2,6 +2,7 @@
 
 ## Economics
 
+- [ ] The completed task is clearly defined.
 - [ ] Cost per completed task is estimated.
 - [ ] Monthly volume assumptions are documented.
 - [ ] Retry and fallback assumptions are documented.

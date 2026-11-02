@@ -1,12 +1,12 @@
 # Contributing
 
-Tokenomics from Scratch is a portfolio-grade educational repo about AI product economics.
+Tokenomics from Scratch is an open, problem-based guide to AI product economics, for finance leads, product managers and program managers.
 
 ## What Belongs Here
 
 - Clear lessons about cost per completed task, model routing, agent economics, AI feature margin, and production cost governance
 - Small runnable examples that clarify the lesson
-- PM and FDE templates that produce reusable artifacts
+- Templates a finance lead or product manager can fill in for their own feature
 - High-signal resources with explicit notes about why they matter
 
 ## What Does Not Belong Here

@@ -33,5 +33,23 @@
   "human_fallback_rate": 0.03,
   "human_fallback_cost": 2.5,
   "failure_rate": 0.01,
-  "failure_cost": 5.0
+  "failure_cost": 5.0,
+  "model_behavior_note": "Illustrative: how each model behaves on THIS task when it runs every step. Replace with your own eval results.",
+  "model_behavior": {
+    "cheap-model": {
+      "retry_rate": 0.2,
+      "human_fallback_rate": 0.08,
+      "failure_rate": 0.03
+    },
+    "mid-model": {
+      "retry_rate": 0.08,
+      "human_fallback_rate": 0.03,
+      "failure_rate": 0.01
+    },
+    "frontier-model": {
+      "retry_rate": 0.03,
+      "human_fallback_rate": 0.015,
+      "failure_rate": 0.005
+    }
+  }
 }

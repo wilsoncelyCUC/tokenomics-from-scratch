@@ -28,13 +28,7 @@ This lesson uses illustrative prices from [data/sample_pricing.json](../../data/
 
 ## Build It
 
-Run the first demo:
-
-```bash
-python projects/cost-per-task-calculator/calculator.py
-```
-
-Then run the package CLI:
+Run the calculator:
 
 ```bash
 python -m tokenomics_from_scratch.cli estimate --workflow examples/support-agent-cost.json
@@ -57,4 +51,3 @@ At the end of this lesson, you should have a working calculator and a written no
 
 - Previous: [00 Foundations](../00-foundations/README.md)
 - Next: [02 Cost Per Completed Task](../02-cost-per-completed-task/README.md)
-- Project: [Cost Per Task Calculator](../../projects/cost-per-task-calculator/README.md)

@@ -18,7 +18,7 @@ What practical artifact do we build?
 
 ## Use It
 
-How should a PM, FDE, or engineer use it?
+How should a finance lead, product manager or program manager use it?
 
 ## Ship It
 

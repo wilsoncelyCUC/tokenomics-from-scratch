@@ -1,9 +1,8 @@
 from __future__ import annotations
 
-from copy import deepcopy
 from typing import Any
 
-from .calculator import calculate_workflow_cost
+from .calculator import assign_model, calculate_workflow_cost
 
 
 def simulate_routing(
@@ -11,7 +10,11 @@ def simulate_routing(
     pricing_catalog: dict[str, dict[str, Any]],
     budget_per_task: float,
 ) -> dict[str, Any]:
-    """Pick the cheapest model assignment that satisfies the task budget."""
+    """Pick the model with the cheapest completed task that fits the budget.
+
+    Every model is tried, because the cheapest price per token is not always the
+    cheapest completed task once retries and failures are counted.
+    """
 
     model_ids = sorted(
         pricing_catalog,
@@ -23,11 +26,7 @@ def simulate_routing(
     attempts: list[dict[str, Any]] = []
 
     for default_model in model_ids:
-        candidate = deepcopy(workflow)
-        for step in candidate["steps"]:
-            if "model_id" in step:
-                step["model_id"] = default_model
-        result = calculate_workflow_cost(candidate, pricing_catalog)
+        result = calculate_workflow_cost(assign_model(workflow, default_model), pricing_catalog)
         attempts.append(
             {
                 "default_model": default_model,
@@ -35,18 +34,11 @@ def simulate_routing(
                 "within_budget": result["cost_per_completed_task"] <= budget_per_task,
             }
         )
-        if result["cost_per_completed_task"] <= budget_per_task:
-            return {
-                "budget_per_task": budget_per_task,
-                "selected_model": default_model,
-                "selected_cost_per_completed_task": result["cost_per_completed_task"],
-                "attempts": attempts,
-            }
 
-    cheapest = attempts[-1]
+    best = min(attempts, key=lambda attempt: attempt["cost_per_completed_task"])
     return {
         "budget_per_task": budget_per_task,
-        "selected_model": None,
-        "selected_cost_per_completed_task": cheapest["cost_per_completed_task"],
+        "selected_model": best["default_model"] if best["within_budget"] else None,
+        "selected_cost_per_completed_task": best["cost_per_completed_task"],
         "attempts": attempts,
     }
