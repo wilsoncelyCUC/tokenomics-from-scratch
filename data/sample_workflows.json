@@ -1,8 +1,0 @@
-{
-  "disclaimer": "Illustrative workflows for education only.",
-  "workflows": [
-    "examples/support-agent-cost.json",
-    "examples/document-summarization-cost.json",
-    "examples/internal-copilot-cost.json"
-  ]
-}

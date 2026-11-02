@@ -42,7 +42,7 @@ Use [templates/ai-feature-cost-sheet.md](../../templates/ai-feature-cost-sheet.m
 
 ## Use It
 
-PMs can use this lesson to scope whether an AI feature is economically plausible. FDEs can use it to expose hidden costs before a pilot becomes production.
+PMs can use this lesson to scope whether an AI feature is economically plausible. Finance leads can use it to expose hidden costs before a pilot becomes production.
 
 ## Ship It
 

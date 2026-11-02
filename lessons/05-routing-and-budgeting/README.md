@@ -1,5 +1,7 @@
 # 05: Routing And Budgeting
 
+> **Draft.** An outline without worked numbers yet. It folds into problem P3, the cheaper model that bills more, and P7, when to switch, when that page is written.
+
 ## Motto
 
 Route by task economics, not model loyalty.
@@ -22,7 +24,6 @@ Routing can happen through:
 Run:
 
 ```bash
-python projects/model-routing-simulator/simulator.py
 python -m tokenomics_from_scratch.cli route --workflow examples/internal-copilot-cost.json --budget-per-task 0.05
 ```
 
@@ -38,4 +39,3 @@ A routing recommendation and a budget-per-task threshold.
 
 - Previous: [04 Agent Economics](../04-agent-economics/README.md)
 - Next: [06 Observability](../06-observability/README.md)
-- Project: [Model Routing Simulator](../../projects/model-routing-simulator/README.md)
