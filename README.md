@@ -136,7 +136,7 @@ Run the examples:
 
 ```bash
 python -m tokenomics_from_scratch.cli estimate --workflow examples/support-agent-cost.json
-python -m tokenomics_from_scratch.cli compare --workflow examples/document-summarization-cost.json --models cheap-model,mid-model,frontier-model
+python -m tokenomics_from_scratch.cli compare --workflow examples/support-agent-cost.json --models cheap-model,mid-model,frontier-model
 python -m tokenomics_from_scratch.cli route --workflow examples/internal-copilot-cost.json --budget-per-task 0.05
 ```
 

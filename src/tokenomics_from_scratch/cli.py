@@ -35,10 +35,11 @@ def compare(args: argparse.Namespace) -> None:
     print(f"Workflow: {workflow['workflow_id']}")
     print("Model comparison:")
     for result in results:
+        assumed = " (behaves like baseline: assumed)" if result["behavior_assumed"] else ""
         print(
             f"- {result['model_id']}: "
             f"{money(result['cost_per_completed_task'])}/task, "
-            f"{money(result['monthly_cost'])}/month"
+            f"{money(result['monthly_cost'])}/month{assumed}"
         )
 
 

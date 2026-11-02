@@ -47,19 +47,19 @@ def main() -> None:
     print(f"Workflow: {workflow['workflow_id']}")
     print(f"Budget per completed task: ${BUDGET_PER_TASK:.4f}")
 
+    # Try every model: the cheapest price per token is not always the cheapest completed task.
+    costs = {}
     for model_id in cheapest_first:
         candidate = deepcopy(workflow)
         for step in candidate["steps"]:
             if "model_id" in step:
                 step["model_id"] = model_id
-        cost = workflow_cost(candidate, models)
-        status = "within budget" if cost <= BUDGET_PER_TASK else "over budget"
-        print(f"- Try {model_id}: ${cost:.4f} ({status})")
-        if cost <= BUDGET_PER_TASK:
-            print(f"Selected model: {model_id}")
-            return
+        costs[model_id] = workflow_cost(candidate, models)
+        status = "within budget" if costs[model_id] <= BUDGET_PER_TASK else "over budget"
+        print(f"- Try {model_id}: ${costs[model_id]:.4f} ({status})")
 
-    print("Selected model: none fits budget")
+    best = min(costs, key=costs.get)
+    print(f"Selected model: {best}" if costs[best] <= BUDGET_PER_TASK else "Selected model: none fits budget")
 
 
 if __name__ == "__main__":
